@@ -4,10 +4,10 @@ Dockerized StarCraft 2 Linux application.
 ## Usage
 ```bash
 # Build the image:
-$ docker build -t sc2-docker .
+$ docker build -t docker-sc2 .
 
 # Run the image:
-$ docker run -p 8167:8167 sc2-docker
+$ docker run -p 8167:8167 docker-sc2
 ```
 
 ## License
