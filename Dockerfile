@@ -1,18 +1,27 @@
-FROM centos:8
+FROM fedora:36
+
+LABEL maintainer="sir.alkurbatov@yandex.ru"
 
 WORKDIR /StarCraftII
 
-RUN yum install -y unzip wget
-
-RUN wget -q 'http://blzdistsc2-a.akamaihd.net/Linux/SC2.4.10.zip' \
+RUN dnf install -y unzip wget \
+    && wget -q http://blzdistsc2-a.akamaihd.net/Linux/SC2.4.10.zip \
     && unzip -qq -P iagreetotheeula SC2.4.10.zip -d / \
     && rm SC2.4.10.zip
 
-RUN mkdir /StarCraftII/maps
-RUN wget -q "https://drive.google.com/uc?export=download&id=1OzKPcqPaqLFmSzt5I7QcNCuIwnoSKCr2" -O 2020S2LadderMaps.zip \
-    && unzip -qq 2020S2LadderMaps.zip -d /StarCraftII/maps/2020S2 \
-    && rm 2020S2LadderMaps.zip
+RUN mkdir maps \
+    && wget -q -O sc2ai_2022_season3.zip https://aiarena.net/wiki/184/plugin/attachments/download/14/ \
+    && unzip -qq sc2ai_2022_season3.zip -d maps/ \
+    && rm sc2ai_2022_season3.zip
 
-EXPOSE 8167
+RUN groupadd --system --gid 202 sc2 \
+    && useradd --system --gid 202 --no-create-home --uid 202 sc2 \
+    && chown -R sc2:sc2 /StarCraftII \
+    && dnf erase -y unzip wget \
+    && dnf clean all \
+    && rm -rf /var/cache/yum
 
-ENTRYPOINT ["./Versions/Base75689/SC2_x64", "-listen", "0.0.0.0", "-port", "8167"]
+USER sc2
+
+ENTRYPOINT ["./Versions/Base75689/SC2_x64", "-listen", "0.0.0.0"]
+CMD ["-port", "8167"]
