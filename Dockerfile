@@ -5,8 +5,12 @@ LABEL maintainer="sir.alkurbatov@yandex.ru"
 WORKDIR /StarCraftII
 
 RUN dnf install -y unzip wget \
-    && wget -q http://blzdistsc2-a.akamaihd.net/Linux/SC2.4.10.zip \
+    && groupadd --system --gid 202 sc2 \
+    && useradd --system --gid 202 --no-create-home --uid 202 sc2
+
+RUN wget -q http://blzdistsc2-a.akamaihd.net/Linux/SC2.4.10.zip \
     && unzip -qq -P iagreetotheeula SC2.4.10.zip -d / \
+    && chown -R sc2:sc2 /StarCraftII \
     && rm SC2.4.10.zip
 
 RUN mkdir maps \
@@ -14,10 +18,7 @@ RUN mkdir maps \
     && unzip -qq sc2ai_2022_season3.zip -d maps/ \
     && rm sc2ai_2022_season3.zip
 
-RUN groupadd --system --gid 202 sc2 \
-    && useradd --system --gid 202 --no-create-home --uid 202 sc2 \
-    && chown -R sc2:sc2 /StarCraftII \
-    && dnf erase -y unzip wget \
+RUN dnf erase -y unzip wget \
     && dnf clean all \
     && rm -rf /var/cache/yum
 
