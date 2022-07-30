@@ -11,6 +11,6 @@ $ docker run -p 8167:8167 docker-sc2
 ```
 
 ## License
-Copyright (c) 2021 Alexander Kurbatov
+Copyright (c) 2021-2022 Alexander Kurbatov
 
 Licensed under the [MIT license](LICENSE).
