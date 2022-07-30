@@ -12,7 +12,7 @@ $ docker pull alkurbatov/sc2
 $ docker run -p 8167:8167 alkurbatov/sc2
 ```
 
-3. Connect to the game
+3. Connect to the game.  
 Example code for the C++ API can be found [here](https://github.com/cpp-sc2/scrubber).
 
 ## License
