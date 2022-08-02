@@ -14,7 +14,7 @@ RUN wget -q http://blzdistsc2-a.akamaihd.net/Linux/SC2.4.10.zip \
     && rm SC2.4.10.zip
 
 RUN mkdir maps \
-    && wget -q -O sc2ai_2022_season3.zip https://aiarena.net/wiki/184/plugin/attachments/download/14/ \
+    && wget -q -O sc2ai_2022_season3.zip http://archive.sc2ai.net/Maps/CurrentMapPool.zip \
     && unzip -qq sc2ai_2022_season3.zip -d maps/ \
     && rm sc2ai_2022_season3.zip
 
