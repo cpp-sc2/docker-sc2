@@ -4,7 +4,11 @@ LABEL maintainer="sir.alkurbatov@yandex.ru"
 
 WORKDIR /StarCraftII
 
-RUN dnf install -y unzip wget \
+RUN dnf install -y \
+        libglvnd-devel \
+        mesa-libOSMesa-devel \
+        unzip \
+        wget \
     && groupadd --system --gid 202 sc2 \
     && useradd --system --gid 202 --no-create-home --uid 202 sc2
 
