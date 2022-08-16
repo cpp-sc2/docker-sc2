@@ -6,6 +6,7 @@ WORKDIR /StarCraftII
 
 RUN dnf install -y \
         libglvnd-devel \
+        mesa-dri-drivers \
         mesa-libOSMesa-devel \
         unzip \
         wget \
