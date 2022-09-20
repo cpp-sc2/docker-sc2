@@ -19,9 +19,9 @@ RUN wget -q http://blzdistsc2-a.akamaihd.net/Linux/SC2.4.10.zip \
     && rm SC2.4.10.zip
 
 RUN mkdir maps \
-    && wget -q -O sc2ai_2022_season3.zip http://archive.sc2ai.net/Maps/CurrentMapPool.zip \
-    && unzip -qq sc2ai_2022_season3.zip -d maps/ \
-    && rm sc2ai_2022_season3.zip
+    && wget -q -O sc2ai_current_map_pool.zip http://archive.sc2ai.net/Maps/CurrentMapPool.zip \
+    && unzip -qq sc2ai_current_map_pool.zip -d maps/ \
+    && rm sc2ai_current_map_pool.zip
 
 RUN dnf erase -y unzip wget \
     && dnf clean all \
