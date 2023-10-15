@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/ci.yml
+      - Dockerfile
+  pull_request:
+    paths:
+      - .github/workflows/ci.yml
+      - Dockerfile
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: hadolint
+        uses: hadolint/hadolint-action@v3.1.0
+        with:
+            config: .hadolint.yaml
+            dockerfile: Dockerfile

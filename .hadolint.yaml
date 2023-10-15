@@ -1,0 +1,3 @@
+ignored:
+  - DL3040 # `dnf clean all` mmissing after dnf command
+  - DL3041 # warning: Specify version with `dnf install -y <package>-<version>`

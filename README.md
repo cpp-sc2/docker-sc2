@@ -1,4 +1,7 @@
 # docker-sc2
+
+[![Build Status](https://github.com/cpp-sc2/docker-sc2/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/cpp-sc2/docker-sc2/actions/workflows/ci.yml)
+
 Dockerized StarCraft 2 Linux application.
 
 ## Basic usage
