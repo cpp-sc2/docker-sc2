@@ -22,7 +22,9 @@ RUN mkdir maps \
     && wget -q -O sc2ai_current_map_pool.zip http://archive.sc2ai.net/Maps/CurrentMapPool.zip \
     && unzip -qq sc2ai_current_map_pool.zip -d maps/ \
     && wget -q -O maps/Flat482Spawns.SC2Map https://www.dropbox.com/s/3a0630yhj4xsjuy/Flat482Spawns.SC2Map?dl=1 \
-    && rm sc2ai_current_map_pool.zip
+    && wget -q -O sc2ai_micro_ladder.zip https://aiarena.net/wiki/184/plugin/attachments/download/34/ \
+    && unzip -qq sc2ai_micro_ladder.zip -d maps/ \
+    && rm ./*.zip
 
 RUN dnf erase -y unzip wget \
     && dnf clean all \
