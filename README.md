@@ -36,6 +36,6 @@ docker run -it --rm -p 8167:8167 sc2 -port 8167 -eglpath libEGL.so
 ```
 
 ## License
-Copyright (c) 2021-2024 Alexander Kurbatov
+Copyright (c) 2021-2025 Alexander Kurbatov
 
 Licensed under the [MIT license](LICENSE).
