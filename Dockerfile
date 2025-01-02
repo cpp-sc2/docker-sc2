@@ -1,4 +1,4 @@
-FROM fedora:38
+FROM fedora:41
 
 LABEL maintainer="sir.alkurbatov@yandex.ru"
 
@@ -26,7 +26,7 @@ RUN mkdir maps \
     && unzip -qq sc2ai_micro_ladder.zip -d maps/ \
     && rm ./*.zip
 
-RUN dnf erase -y unzip wget \
+RUN dnf remove -y unzip wget \
     && dnf clean all \
     && rm -rf /var/cache/yum
 
