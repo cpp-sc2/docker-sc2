@@ -19,11 +19,14 @@ RUN wget -q http://blzdistsc2-a.akamaihd.net/Linux/SC2.4.10.zip \
     && rm SC2.4.10.zip
 
 RUN mkdir maps \
-    && wget -q -O sc2ai_current_map_pool.zip http://archive.sc2ai.net/Maps/CurrentMapPool.zip \
+    && wget -q -O sc2ai_current_map_pool.zip https://aiarena.net/wiki/184/plugin/attachments/download/41/ \
     && unzip -qq sc2ai_current_map_pool.zip -d maps/ \
     && wget -q -O maps/Flat482Spawns.SC2Map https://www.dropbox.com/s/3a0630yhj4xsjuy/Flat482Spawns.SC2Map?dl=1 \
+    && wget -q -O maps/sc2-ai-cup-2022.SC2Map https://www.inf.upol.cz/sc2-ai-cup/map/sc2-ai-cup-2022.SC2Map \
     && wget -q -O sc2ai_micro_ladder.zip https://aiarena.net/wiki/184/plugin/attachments/download/34/ \
     && unzip -qq sc2ai_micro_ladder.zip -d maps/ \
+    && wget -q -O sc2ai_micro_ladder_preseason.zip https://aiarena.net/wiki/184/plugin/attachments/download/40/ \
+    && unzip -qq sc2ai_micro_ladder_preseason.zip -d maps/ \
     && rm ./*.zip
 
 RUN dnf remove -y unzip wget \
